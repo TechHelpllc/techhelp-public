@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyTechHelp User Guide</title>
+  <meta name="description" content="MyTechHelp user guide for requesters, helpers, trusted helpers, screen sharing, support contact, pricing, diagnostics, and account settings." />
+  <style>
+    :root {
+      --blue: #0078ff;
+      --deep-blue: #063e73;
+      --teal: #00c9b7;
+      --cyan: #dffbff;
+      --soft: #f6fdff;
+      --text: #10233f;
+      --muted: #5f6f82;
+      --border: #bcecf5;
+      --note: #eefcff;
+      --warning: #fff8e8;
+      --white: #ffffff;
+      --shadow: 0 12px 28px rgba(0, 120, 255, 0.12);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(0, 201, 183, 0.16), transparent 32rem),
+        radial-gradient(circle at top right, rgba(0, 120, 255, 0.14), transparent 30rem),
+        #f8fdff;
+      line-height: 1.62;
+    }
+    a { color: var(--blue); text-decoration: none; font-weight: 700; }
+    a:hover { text-decoration: underline; }
+    .page { max-width: 1120px; margin: 0 auto; padding: 28px 18px 64px; }
+    header {
+      background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(233,251,255,0.96));
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 28px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .cover-img {
+      width: 100%;
+      max-width: 280px;
+      border-radius: 20px;
+      box-shadow: 0 14px 30px rgba(6, 62, 115, 0.14);
+      background: white;
+    }
+    .brand { font-size: .9rem; color: var(--muted); font-weight: 800; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 8px; }
+    h1 { margin: 0; font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.05; color: var(--deep-blue); }
+    .gradient-text { background: linear-gradient(90deg, var(--teal), var(--blue), #3454d1); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .subtitle { max-width: 780px; margin: 16px 0 0; color: var(--muted); font-size: 1.12rem; font-weight: 600; }
+    .button-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 13px 18px; border-radius: 999px; border: 1px solid var(--border);
+      background: var(--white); color: var(--deep-blue); box-shadow: 0 8px 18px rgba(0, 120, 255, 0.08); font-weight: 800;
+    }
+    .button.primary { color: var(--white); border: none; background: linear-gradient(90deg, var(--teal), var(--blue)); }
+    nav {
+      position: sticky; top: 0; z-index: 10; margin: 18px 0 28px; padding: 12px; border-radius: 22px;
+      background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(14px); border: 1px solid var(--border);
+      box-shadow: 0 8px 18px rgba(0, 120, 255, 0.08); display: flex; gap: 8px; overflow-x: auto;
+    }
+    nav a { white-space: nowrap; padding: 10px 14px; border-radius: 999px; background: var(--soft); color: var(--deep-blue); font-size: .95rem; }
+    section {
+      background: rgba(255, 255, 255, 0.94); border: 1px solid var(--border); border-radius: 26px; padding: 28px;
+      margin: 22px 0; box-shadow: 0 10px 24px rgba(0, 120, 255, 0.07);
+    }
+    h2 { margin: 0 0 14px; color: var(--deep-blue); font-size: clamp(1.7rem, 3vw, 2.45rem); line-height: 1.12; }
+    h3 { color: #057e95; margin: 26px 0 8px; font-size: 1.35rem; }
+    p { margin: 10px 0; } ul, ol { padding-left: 1.3rem; } li { margin: 6px 0; }
+    .note { background: var(--note); border-left: 5px solid var(--teal); padding: 14px 16px; border-radius: 14px; margin: 18px 0; color: var(--text); font-weight: 600; }
+    .warning { background: var(--warning); border-left-color: #ffae33; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+    .card { background: linear-gradient(180deg, #ffffff, #f2fcff); border: 1px solid var(--border); border-radius: 20px; padding: 18px; min-height: 160px; }
+    .card h4 { margin: 0 0 10px; color: var(--deep-blue); font-size: 1.12rem; text-align: center; }
+    figure { margin: 12px 0 8px; }
+    .screenshot {
+      width: 100%; max-height: 560px; object-fit: contain; display: block; margin: 0 auto;
+      border-radius: 16px; background: #fff; box-shadow: 0 8px 22px rgba(6, 62, 115, 0.10);
+      border: 1px solid rgba(188,236,245,.75);
+    }
+    figcaption { margin-top: 10px; color: var(--muted); font-size: .96rem; }
+    .single { max-width: 520px; margin-left: auto; margin-right: auto; }
+    table { width: 100%; border-collapse: collapse; margin-top: 16px; overflow: hidden; border-radius: 16px; font-size: .96rem; }
+    th, td { border: 1px solid var(--border); padding: 12px; text-align: left; vertical-align: top; }
+    th { background: var(--cyan); color: var(--deep-blue); }
+    footer { text-align: center; margin-top: 32px; padding: 28px; color: var(--muted); font-weight: 600; }
+    @media (max-width: 860px) {
+      header { grid-template-columns: 1fr; text-align: center; }
+      .cover-img { margin: 0 auto; max-width: 240px; }
+      .button-row { justify-content: center; }
+    }
+    @media (max-width: 760px) {
+      header, section { padding: 22px; border-radius: 22px; }
+      .grid { grid-template-columns: 1fr; }
+      nav { border-radius: 18px; }
+      .screenshot { max-height: 620px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <img class="cover-img" src="assets/guide-p01-img1.jpeg" alt="MyTechHelp User Guide cover" />
+      <div>
+        <div class="brand">MyTechHelp • User Guide</div>
+        <h1><span class="gradient-text">Smart tech.</span><br />Simple solutions.</h1>
+        <p class="subtitle">Learn how to request help, provide help, manage trusted helpers, use support calling, understand pricing, and export diagnostics.</p>
+        <div class="button-row">
+          <a class="button primary" href="MyTechHelp_User_Guide.pdf">Download PDF Guide</a>
+          <a class="button" href="privacy.html">Privacy Policy</a>
+          <a class="button" href="support.html">Support</a>
+          <a class="button" href="terms.html">Terms of Use</a>
+        </div>
+      </div>
+    </header>
+
+    <nav aria-label="User guide navigation">
+      <a href="#purpose">Purpose</a>
+      <a href="#security">Security</a>
+      <a href="#requester">Requester Flow</a>
+      <a href="#helper">Helper Flow</a>
+      <a href="#settings">Settings & Pricing</a>
+      <a href="#diagnostics">Diagnostics</a>
+      <a href="#quick-reference">Quick Reference</a>
+    </nav>
+
+    <section id="purpose">
+      <h2>1. What MyTechHelp Is Built For</h2>
+      <p>MyTechHelp is a peer-to-peer help app designed to make remote tech support feel simple, safe, and human. It helps someone requesting help connect with a trusted helper who can guide them through a support session.</p>
+      <h3>Purpose</h3>
+      <ul>
+        <li>Give requesters a simple way to ask for help from someone they trust.</li>
+        <li>Let helpers connect by entering a 6-digit help code or responding to a trusted-helper request.</li>
+        <li>Allow screen sharing only after the requester starts it, so the requester stays in control.</li>
+        <li>Keep support approachable for families, friends, and non-technical users.</li>
+      </ul>
+      <div class="note">MyTechHelp is built around real people helping real people - without giving the helper control of the requester device.</div>
+    </section>
+
+    <section id="security">
+      <h2>2. Built Around Trust, Security, and User Friendliness</h2>
+      <div class="grid">
+        <div class="card"><h4>Requester control</h4><p>The requester decides when a session begins, when screen sharing starts, and when the session ends.</p></div>
+        <div class="card"><h4>View-only help</h4><p>Helpers can view the screen only after screen sharing is started by the requester. Helpers do not control the requester device.</p></div>
+        <div class="card"><h4>Secure request flow</h4><p>Help codes expire automatically. Trusted-helper requests can be accepted, declined, cancelled, or allowed to time out.</p></div>
+        <div class="card"><h4>Clear history</h4><p>Previous Requests, Request Queue, Help History, and Diagnostics help users understand what happened during support.</p></div>
+      </div>
+      <p class="note warning">Privacy note: Screenshots in public materials should blur names, phone numbers, email addresses, account IDs, and private device content before publishing.</p>
+    </section>
+
+    <section id="requester">
+      <h2>3. Requester Flow</h2>
+      <p>Use the requester flow when you need help. You can create a secure help code, ask a trusted helper, start screen sharing, and review previous requests afterward.</p>
+      <ul>
+        <li>Start from the <strong>Request Help</strong> tab.</li>
+        <li>Use <strong>Get Help Now</strong> to create a secure code, or open <strong>Trusted Helpers</strong> to ask someone already saved.</li>
+        <li>Start screen sharing only when you are ready for your helper to view your screen.</li>
+        <li>Use <strong>Previous Requests</strong> to review completed, timed out, cancelled, or declined requests.</li>
+      </ul>
+
+      <div class="grid">
+        <div class="card"><h4>Request Help dashboard</h4><figure><img class="screenshot" src="assets/guide-p03-img1.jpeg" alt="Request Help dashboard showing Get Help Now, Trusted Helpers, Previous Requests, and Settings" /><figcaption>Start on the Request Help tab to create a code, manage trusted helpers, or review previous requests.</figcaption></figure></div>
+        <div class="card"><h4>Get Help Now</h4><figure><img class="screenshot" src="assets/guide-p03-img2.jpeg" alt="Get Help Now dashboard tile and requester options" /><figcaption>Use Get Help Now to create a 6-digit code. Codes expire automatically for security.</figcaption></figure></div>
+      </div>
+
+      <h3>Help Code and Trusted Helpers</h3>
+      <div class="grid">
+        <div class="card"><h4>Secure help code</h4><figure><img class="screenshot" src="assets/guide-p04-img1.jpeg" alt="Secure help code screen with 6-digit code and expiration timer" /><figcaption>Share the secure code only with the person you expect to help you.</figcaption></figure></div>
+        <div class="card"><h4>Trusted Helpers</h4><figure><img class="screenshot" src="assets/guide-p04-img2.png" alt="Trusted Helpers list with Ask for Help and Remove buttons" /><figcaption>Tap Ask for Help under a trusted helper to send a support request without sharing a code.</figcaption></figure></div>
+      </div>
+
+      <h3>Previous Requests</h3>
+      <div class="card single"><h4>Request history</h4><figure><img class="screenshot" src="assets/guide-p05-img1.jpeg" alt="Previous Requests screen showing completed help requests" /><figcaption>Previous Requests shows completed, timed out, cancelled, and declined help requests.</figcaption></figure></div>
+      <p class="note">Requester safety reminder: Your helper cannot control your phone. They can only see your screen after you start screen sharing.</p>
+
+      <h3>Screen Sharing and Ending Sessions</h3>
+      <ol>
+        <li>After the session connects, tap <strong>Start Screen Share</strong>.</li>
+        <li>When the Apple broadcast screen appears, choose the MyTechHelp broadcast extension.</li>
+        <li>Tap <strong>Start Broadcast</strong>.</li>
+        <li>After sharing begins, your helper can view your screen but cannot control it.</li>
+        <li>Return to MyTechHelp when you are ready to end the session.</li>
+      </ol>
+      <div class="grid">
+        <div class="card"><h4>Start Screen Share</h4><figure><img class="screenshot" src="assets/guide-p06-img1.png" alt="Requester support session showing Start Screen Share" /><figcaption>Screen sharing starts only when the requester chooses it.</figcaption></figure></div>
+        <div class="card"><h4>Apple Screen Broadcast</h4><figure><img class="screenshot" src="assets/guide-p06-img2.png" alt="Apple Screen Broadcast sheet with MyTechHelp broadcast extension selected" /><figcaption>On the Apple broadcast sheet, choose the MyTechHelp broadcast extension and tap Start Broadcast.</figcaption></figure></div>
+      </div>
+      <div class="grid">
+        <div class="card"><h4>Screen Sharing Active</h4><figure><img class="screenshot" src="assets/guide-p07-img1.png" alt="Requester session showing Screen Sharing Active and Call Helper" /><figcaption>After broadcasting starts, the requester sees Screen Sharing Active and can call the helper if needed.</figcaption></figure></div>
+        <div class="card"><h4>End Session Confirmation</h4><figure><img class="screenshot" src="assets/guide-p07-img2.png" alt="End Session confirmation dialog with Keep Open and End Session buttons" /><figcaption>Tap End Session, then confirm. Phone or FaceTime calls may continue separately and should be ended separately.</figcaption></figure></div>
+      </div>
+      <div class="card single"><h4>Broadcast Stopped Confirmation</h4><figure><img class="screenshot" src="assets/guide-p08-img1.png" alt="iOS Screen Broadcasting stopped confirmation" /><figcaption>If either user ends the support session, MyTechHelp ends the session for both people and asks the broadcast extension to stop screen sharing.</figcaption></figure></div>
+
+      <h3>Previous Request Statuses</h3>
+      <table>
+        <thead><tr><th>Status</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td>Completed</td><td>A support session connected and ended normally.</td></tr>
+          <tr><td>Waiting</td><td>A request is still active and waiting for a response.</td></tr>
+          <tr><td>Timed Out</td><td>A trusted-helper request expired before it was accepted.</td></tr>
+          <tr><td>Cancelled</td><td>The requester withdrew the request before it connected.</td></tr>
+          <tr><td>Declined</td><td>The helper declined the request before a session started.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="helper">
+      <h2>4. Helper Flow</h2>
+      <p>Use the helper flow when someone asks you for help. Helpers can enter a help code, respond to trusted-helper requests, review the Request Queue, and review completed sessions.</p>
+      <div class="grid">
+        <div class="card"><h4>Provide Help dashboard</h4><figure><img class="screenshot" src="assets/guide-p09-img1.jpeg" alt="Provide Help dashboard with Enter Help Code, Request Queue, and Help History" /><figcaption>Helpers can enter a help code, review incoming requests, or open help history.</figcaption></figure></div>
+        <div class="card"><h4>Enter Help Code</h4><figure><img class="screenshot" src="assets/guide-p09-img2.jpeg" alt="Enter Help Code screen with keypad" /><figcaption>Enter the requester 6-digit help code only when the requester is expecting help.</figcaption></figure></div>
+      </div>
+
+      <h3>Request Queue and Help History</h3>
+      <div class="grid">
+        <div class="card"><h4>Request Queue</h4><figure><img class="screenshot" src="assets/guide-p10-img1.jpeg" alt="Request Queue showing timed out and declined trusted-helper requests" /><figcaption>Request Queue shows pending, missed, timed out, cancelled, and declined trusted-helper requests.</figcaption></figure></div>
+        <div class="card"><h4>Help History</h4><figure><img class="screenshot" src="assets/guide-p10-img2.jpeg" alt="Help History showing completed support sessions" /><figcaption>Help History contains completed support sessions and basic session details.</figcaption></figure></div>
+      </div>
+
+      <h3>During a Helper Session</h3>
+      <ol>
+        <li>After accepting, the helper session opens.</li>
+        <li>Wait for the requester to start screen sharing.</li>
+        <li>Use <strong>Refresh Screen</strong> if the view appears stale.</li>
+        <li>Use <strong>Call Requester</strong> if a support call contact is available.</li>
+        <li>Use <strong>End Session</strong> if the support session should be ended for both users.</li>
+      </ol>
+      <div class="grid">
+        <div class="card"><h4>Waiting for Requester Screen</h4><figure><img class="screenshot" src="assets/guide-p11-img1.png" alt="Helper session waiting for requester screen" /><figcaption>The helper sees a waiting state until the requester starts the Apple screen broadcast.</figcaption></figure></div>
+        <div class="card"><h4>Shared Screen Visible</h4><figure><img class="screenshot" src="assets/guide-p11-img2.png" alt="Helper session showing requester shared screen" /><figcaption>Once sharing starts, the helper can view the requester screen, refresh if needed, call the requester, or end the session.</figcaption></figure></div>
+      </div>
+      <p class="note">Helper safety reminder: Only connect or respond when the requester is expecting your help. Protect privacy and follow MyTechHelp terms of use.</p>
+    </section>
+
+    <section id="settings">
+      <h2>5. Settings, Features, and Pricing</h2>
+      <p>Settings is where users manage account information, plan details, diagnostics, app preferences, support resources, guided walkthrough, and account deletion.</p>
+      <h3>Pricing Model</h3>
+      <ul>
+        <li>Everyone receives a 30-day free trial.</li>
+        <li>After the 30-day free period, requester support sessions require Premium access.</li>
+        <li>Premium unlocks unlimited support sessions and future advanced features.</li>
+        <li>Helpers can still help someone else without a subscription unless they are requesting help themselves.</li>
+      </ul>
+      <p class="note warning">Pricing note: The Plan & Usage card shows whether the user is in trial, expired trial, or Premium status.</p>
+
+      <div class="grid">
+        <div class="card"><h4>Settings overview and Plan & Usage</h4><figure><img class="screenshot" src="assets/guide-p12-img1.png" alt="Settings screen with account and Plan & Usage" /><figcaption>Settings includes Account, Plan & Usage, Diagnostics, App Info, Guided Walkthrough, and account tools.</figcaption></figure></div>
+        <div class="card"><h4>Settings feature cards</h4><figure><img class="screenshot" src="assets/guide-p12-img2.jpeg" alt="Settings feature cards and Guided Walkthrough" /><figcaption>Use the Settings cards to adjust helper view, export diagnostics, review app info, or delete an account.</figcaption></figure></div>
+      </div>
+
+      <h3>Account, Display Name, and Support Call Contact</h3>
+      <p>The Account area controls the name shown during sessions and how trusted helpers may contact the requester during support.</p>
+      <div class="grid">
+        <div class="card"><h4>Account and Display Name</h4><figure><img class="screenshot" src="assets/guide-p13-img1.png" alt="Account screen with display name and sign-in details" /><figcaption>The display name is the name helpers and requesters see during support sessions.</figcaption></figure></div>
+        <div class="card"><h4>Support Call Contact</h4><figure><img class="screenshot" src="assets/guide-p13-img2.jpeg" alt="Support Call Contact options" /><figcaption>Support Call Contact controls whether trusted helpers can call during a support session.</figcaption></figure></div>
+      </div>
+      <div class="card single"><h4>Support Call Contact options</h4><figure><img class="screenshot" src="assets/guide-p14-img1.png" alt="Support Call Contact and sign-in details" /><figcaption>Choose sign-in email, a different FaceTime email, phone number, or no helper calls.</figcaption></figure></div>
+      <p class="note">Support Call Contact: Users can allow trusted helpers to call by sign-in email, a different FaceTime email, a phone number, or they can turn helper calls off. Sign-in details stay private and are used for account support.</p>
+    </section>
+
+    <section id="diagnostics">
+      <h2>6. Diagnostics, App Info, and Account Deletion</h2>
+      <div class="grid">
+        <div class="card"><h4>Diagnostics</h4><figure><img class="screenshot" src="assets/guide-p15-img1.jpeg" alt="Diagnostics screen showing session log folders and export options" /><figcaption>Diagnostics exports session logs, app startup/lifecycle logs, and support data for troubleshooting.</figcaption></figure></div>
+        <div class="card"><h4>App Info & Support</h4><figure><img class="screenshot" src="assets/guide-p15-img2.jpeg" alt="App Info and Support screen" /><figcaption>App Info & Support contains What to Expect, Privacy Policy, Support, and Terms of Use.</figcaption></figure></div>
+      </div>
+      <p>Diagnostics exports logs that help troubleshoot support sessions. The current export includes session logs and app startup/lifecycle logs so support can see what happened before and during a session.</p>
+      <ul>
+        <li>Open Settings and tap <strong>Diagnostics</strong>.</li>
+        <li>Choose the relevant session log folder.</li>
+        <li>Tap <strong>Export Logs</strong> or <strong>Email Logs to Support</strong>.</li>
+      </ul>
+
+      <h3>Delete Account & Data</h3>
+      <div class="card single"><figure><img class="screenshot" src="assets/guide-p16-img1.jpeg" alt="Delete Account and Data screen" /><figcaption>Account deletion is permanent. Review what will be removed or anonymized before confirming.</figcaption></figure></div>
+      <ul>
+        <li>Account deletion is permanent and cannot be undone.</li>
+        <li>MyTechHelp attempts to remove account profile information, trusted-helper relationships, push tokens, pending requests, help codes, and session records connected to the account.</li>
+      </ul>
+    </section>
+
+    <section id="quick-reference">
+      <h2>7. Quick Reference</h2>
+      <table>
+        <thead><tr><th>Area</th><th>Feature</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>Requester</td><td>Get Help Now</td><td>Create a secure 6-digit help code.</td></tr>
+          <tr><td>Requester</td><td>Trusted Helpers</td><td>Ask a saved helper for help without sharing a code.</td></tr>
+          <tr><td>Requester</td><td>Previous Requests</td><td>Review completed, timed out, cancelled, and declined requests.</td></tr>
+          <tr><td>Helper</td><td>Enter Help Code</td><td>Connect to a requester using their 6-digit code.</td></tr>
+          <tr><td>Helper</td><td>Request Queue</td><td>Review pending, missed, timed-out, cancelled, and declined requests.</td></tr>
+          <tr><td>Helper</td><td>Help History</td><td>Review completed support sessions.</td></tr>
+          <tr><td>Settings</td><td>Plan & Usage</td><td>Check 30-day free trial, expired trial, or Premium status.</td></tr>
+          <tr><td>Settings</td><td>Support Call Contact</td><td>Choose how trusted helpers may call during a support session.</td></tr>
+          <tr><td>Settings</td><td>Diagnostics</td><td>Export support logs for troubleshooting.</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Support email: <a href="mailto:TechHelpSolutionsLLC@outlook.com">TechHelpSolutionsLLC@outlook.com</a></p>
+    </section>
+
+    <footer>
+      <p>Thank you for using MyTechHelp.</p>
+      <p><a href="index.html">Home</a> • <a href="privacy.html">Privacy</a> • <a href="support.html">Support</a> • <a href="terms.html">Terms</a> • <a href="what-to-expect.html">What to Expect</a></p>
+    </footer>
+  </div>
+</body>
+</html>
